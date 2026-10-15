@@ -106,7 +106,7 @@ runs:
     - name: Start worker
       if: inputs.source == 'local'
       shell: bash
-      working-directory: packages/twenty-server
+      working-directory: backend
       run: nohup yarn worker:prod > /tmp/twenty-worker.log 2>&1 &
 
     - name: Resolve server url and api key

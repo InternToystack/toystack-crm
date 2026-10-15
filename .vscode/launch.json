@@ -12,7 +12,7 @@
       "outputCapture": "std",
       "internalConsoleOptions": "openOnSessionStart",
       "console": "internalConsole",
-      "cwd": "${workspaceFolder}/packages/twenty-server/"
+      "cwd": "${workspaceFolder}/backend/"
     },
     {
       "name": "twenty-server - worker debug",
@@ -23,7 +23,7 @@
       "outputCapture": "std",
       "internalConsoleOptions": "openOnSessionStart",
       "console": "internalConsole",
-      "cwd": "${workspaceFolder}/packages/twenty-server/"
+      "cwd": "${workspaceFolder}/backend/"
     },
     {
       "name": "twenty-server - command debug example",
@@ -41,7 +41,7 @@
       "outputCapture": "std",
       "internalConsoleOptions": "openOnSessionStart",
       "console": "internalConsole",
-      "cwd": "${workspaceFolder}/packages/twenty-server/"
+      "cwd": "${workspaceFolder}/backend/"
     },
     {
       "name": "Playwright Test current file",
@@ -70,7 +70,7 @@
         "--silent=false",
         "${input:updateSnapshot}"
       ],
-      "cwd": "${workspaceFolder}/packages/twenty-server",
+      "cwd": "${workspaceFolder}/backend",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "env": {
@@ -92,7 +92,7 @@
         "./jest.config.mjs",
         "${relativeFile}"
       ],
-      "cwd": "${workspaceFolder}/packages/twenty-server",
+      "cwd": "${workspaceFolder}/backend",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "env": {

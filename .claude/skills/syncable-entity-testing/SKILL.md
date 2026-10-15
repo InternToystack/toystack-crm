@@ -426,13 +426,13 @@ expectOneNotInternalServerErrorSnapshot({
 
 ```bash
 # Run all entity tests
-npx jest test/integration/metadata/suites/my-entity --config=packages/twenty-server/jest.config.mjs
+npx jest test/integration/metadata/suites/my-entity --config=backend/jest.config.mjs
 
 # Run specific test file
-npx jest test/integration/metadata/suites/my-entity/failing-my-entity-creation.integration-spec.ts --config=packages/twenty-server/jest.config.mjs
+npx jest test/integration/metadata/suites/my-entity/failing-my-entity-creation.integration-spec.ts --config=backend/jest.config.mjs
 
 # Update snapshots
-npx jest test/integration/metadata/suites/my-entity --updateSnapshot --config=packages/twenty-server/jest.config.mjs
+npx jest test/integration/metadata/suites/my-entity --updateSnapshot --config=backend/jest.config.mjs
 ```
 
 ---

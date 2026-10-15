@@ -37,7 +37,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          catalog_dir=packages/twenty-server/src/engine/metadata-modules/ai/ai-models
+          catalog_dir=backend/src/engine/metadata-modules/ai/ai-models
           if git diff --quiet "$catalog_dir"; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else

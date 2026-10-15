@@ -5,7 +5,7 @@ on:
     paths:
       - 'packages/twenty-companion/**'
       - 'packages/twenty-ui/**'
-      - 'packages/twenty-front/**'
+      - 'frontend/**'
       - 'packages/twenty-shared/**'
       - 'package.json'
       - 'yarn.lock'
@@ -15,7 +15,7 @@ on:
     paths:
       - 'packages/twenty-companion/**'
       - 'packages/twenty-ui/**'
-      - 'packages/twenty-front/**'
+      - 'frontend/**'
       - 'packages/twenty-shared/**'
       - 'package.json'
       - 'yarn.lock'

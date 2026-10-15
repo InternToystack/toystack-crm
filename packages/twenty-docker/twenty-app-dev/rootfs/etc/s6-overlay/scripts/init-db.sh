@@ -28,7 +28,7 @@ su-exec postgres psql -h localhost -tc \
   || su-exec postgres createdb -h localhost -O twenty default
 
 # Run Twenty database setup and migrations
-cd /app/packages/twenty-server
+cd /app/backend
 
 step_start "Running ClickHouse migrations"
 TRIES=0

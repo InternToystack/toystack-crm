@@ -33,7 +33,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet packages/twenty-server/src/engine/core-modules/dpa/constants/subprocessors.json; then
+          if git diff --quiet backend/src/engine/core-modules/dpa/constants/subprocessors.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"

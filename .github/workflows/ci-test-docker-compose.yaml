@@ -19,8 +19,8 @@ jobs:
       files: |
         .github/workflows/ci-test-docker-compose.yaml
         packages/twenty-docker/**
-        packages/twenty-server/src/engine/core-modules/frontend/**
-        packages/twenty-server/src/engine/core-modules/client-config/**
+        backend/src/engine/core-modules/frontend/**
+        backend/src/engine/core-modules/client-config/**
         docker-compose.yml
   test-compose:
     needs: changed-files-check
@@ -114,8 +114,8 @@ jobs:
           sudo systemctl restart docker
       - name: Create frontend placeholder
         run: |
-          mkdir -p packages/twenty-front/build
-          echo '<html><head></head><body>CI placeholder</body></html>' > packages/twenty-front/build/index.html
+          mkdir -p frontend/build
+          echo '<html><head></head><body>CI placeholder</body></html>' > frontend/build/index.html
       - name: Build app-dev image
         run: |
           docker build \
@@ -168,7 +168,7 @@ jobs:
           done
       - name: Verify ClickHouse migrations
         run: |
-          expected=$(ls packages/twenty-server/src/database/clickhouse/migrations/*.sql | wc -l)
+          expected=$(ls backend/src/database/clickhouse/migrations/*.sql | wc -l)
           applied=$(docker exec twenty-app-dev clickhouse client --query "SELECT count() FROM twenty._migration")
           echo "Applied ${applied}/${expected} ClickHouse migrations"
           test "$applied" -eq "$expected"

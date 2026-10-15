@@ -19,7 +19,7 @@ jobs:
     with:
       files: |
         packages/twenty-zapier/**
-        packages/twenty-server/**
+        backend/**
         !packages/twenty-zapier/package.json
         !packages/twenty-zapier/CHANGELOG.md
   server-setup:
@@ -74,7 +74,7 @@ jobs:
           timeout 60 bash -c 'until curl -sf http://localhost:3000/healthz; do sleep 2; done'
 
       - name: Start worker
-        working-directory: packages/twenty-server
+        working-directory: backend
         run: |
           NODE_ENV=development node dist/queue-worker/queue-worker.js &
           echo "Worker started"

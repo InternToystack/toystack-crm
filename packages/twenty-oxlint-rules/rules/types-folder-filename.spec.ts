@@ -9,8 +9,8 @@ const DUMMY_CODE = 'const x = 1;';
 const PASCAL_CASE = [{ convention: 'PascalCase' }];
 const KEBAB_CASE_TYPE_SUFFIX = [{ convention: 'kebab-case-type-suffix' }];
 
-const front = (path: string) => `/project/packages/twenty-front/src/${path}`;
-const server = (path: string) => `/project/packages/twenty-server/src/${path}`;
+const front = (path: string) => `/project/frontend/src/${path}`;
+const server = (path: string) => `/project/backend/src/${path}`;
 
 ruleTester.run(RULE_NAME, rule, {
   valid: [

@@ -23,7 +23,7 @@ jobs:
     with:
       files: |
         package.json
-        packages/twenty-server/**
+        backend/**
         packages/twenty-emails/**
         packages/twenty-shared/**
         .github/workflows/ci-breaking-changes.yaml
@@ -125,7 +125,7 @@ jobs:
           set_env_var() {
             local var_name="$1"
             local var_value="$2"
-            local env_file="packages/twenty-server/.env"
+            local env_file="backend/.env"
 
             echo "" >> "$env_file"
 
@@ -154,7 +154,7 @@ jobs:
       - name: Start current branch server in background
         run: |
           echo "=== Current branch .env file contents ==="
-          cat packages/twenty-server/.env
+          cat backend/.env
           echo "=== Starting current branch server ==="
           nohup npx nx run twenty-server:start:prod > /tmp/current-server.log 2>&1 &
           echo $! > /tmp/current-server.pid
@@ -167,7 +167,7 @@ jobs:
           interval=5
           elapsed=0
 
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' backend/test/integration/constants/test-tokens.json)
 
           while [ $elapsed -lt $timeout ]; do
             GRAPHQL_RESPONSE=$(curl -s -X POST "http://localhost:${{ env.CURRENT_SERVER_PORT }}/graphql" \
@@ -197,7 +197,7 @@ jobs:
       - name: Download GraphQL and REST responses from current branch
         run: |
           # Read admin token from shared test tokens file (single source of truth)
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' backend/test/integration/constants/test-tokens.json)
 
           # Load introspection query from file
           INTROSPECTION_QUERY=$(cat packages/twenty-utils/graphql-introspection-query.graphql)
@@ -300,7 +300,7 @@ jobs:
           set_env_var() {
             local var_name="$1"
             local var_value="$2"
-            local env_file="packages/twenty-server/.env"
+            local env_file="backend/.env"
 
             echo "" >> "$env_file"
 
@@ -329,7 +329,7 @@ jobs:
       - name: Start main branch server in background
         run: |
           echo "=== Main branch .env file contents ==="
-          cat packages/twenty-server/.env
+          cat backend/.env
           echo "=== Starting main branch server ==="
           nohup npx nx run twenty-server:start:prod > /tmp/main-server.log 2>&1 &
           echo $! > /tmp/main-server.pid
@@ -342,7 +342,7 @@ jobs:
           interval=5
           elapsed=0
 
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' backend/test/integration/constants/test-tokens.json)
 
           while [ $elapsed -lt $timeout ]; do
             GRAPHQL_RESPONSE=$(curl -s -X POST "http://localhost:${{ env.MAIN_SERVER_PORT }}/graphql" \
@@ -372,7 +372,7 @@ jobs:
       - name: Download GraphQL and REST responses from main branch
         run: |
           # Read admin token from shared test tokens file (single source of truth)
-          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' packages/twenty-server/test/integration/constants/test-tokens.json)
+          ADMIN_TOKEN=$(jq -r '.APPLE_JANE_ADMIN_ACCESS_TOKEN' backend/test/integration/constants/test-tokens.json)
 
           # Load introspection query preserved from the current branch
           INTROSPECTION_QUERY=$(cat /tmp/graphql-introspection-query.graphql)

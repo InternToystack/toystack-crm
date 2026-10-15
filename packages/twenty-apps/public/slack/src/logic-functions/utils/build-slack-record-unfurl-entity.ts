@@ -9,7 +9,7 @@ import { buildSlackEntityPayloadFields } from 'src/logic-functions/utils/build-s
 import { toEpochSeconds } from 'src/logic-functions/utils/to-epoch-seconds';
 
 const TWENTY_PRODUCT_ICON_URL =
-  'https://raw.githubusercontent.com/twentyhq/twenty/main/packages/twenty-front/public/images/icons/ios/192.png';
+  'https://raw.githubusercontent.com/twentyhq/twenty/main/frontend/public/images/icons/ios/192.png';
 
 const DISPLAY_TYPE_BY_OBJECT: Record<SlackUnfurlObjectName, string> = {
   person: 'Person',

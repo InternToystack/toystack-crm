@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 Ogni variabile è documentata con descrizioni nel tuo pannello di amministrazione in **Impostazioni → Pannello di Amministrazione → Variabili di Configurazione**.
 Alcune impostazioni infrastrutturali come connessioni al database (`PG_DATABASE_URL`), URL del server (`SERVER_URL`) e segreti (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`) possono essere configurate solo tramite file `.env`.
 
-[Riferimento tecnico completo →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[Riferimento tecnico completo →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## Chiavi di crittografia
@@ -168,7 +168,7 @@ Quando è abilitata, solo gli utenti con `canAccessFullAdminPanel` possono crear
 **Modalità solo ambiente:** Se imposti `IS_CONFIG_VARIABLES_IN_DB_ENABLED=false`, aggiungi queste variabili al tuo file `.env` invece.
 </Warning>
 
-**Scope richiesti** (configurati automaticamente): [Vedi il codice sorgente pertinente](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+**Scope richiesti** (configurati automaticamente): [Vedi il codice sorgente pertinente](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -237,7 +237,7 @@ Devi aggiungere i seguenti URI di reindirizzamento al tuo progetto:
 
 ### Configura scope
 
-[Vedi il codice sorgente pertinente](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[Vedi il codice sorgente pertinente](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'email'
@@ -324,7 +324,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 Per impostazione predefinita, Twenty archivia i file caricati nel file system locale. Per le distribuzioni in produzione, usa S3 o un servizio compatibile con S3 (MinIO, DigitalOcean Spaces, ecc.). per garantire che i file persistano tra i riavvii dei container e per poter scalare su più istanze server.
 </Warning>
 
-Imposta `STORAGE_TYPE=S_3` e configura le variabili `STORAGE_S3_*` tramite il pannello di amministrazione o `.env`. Consulta il [riferimento a config-variables.ts](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) per l'elenco completo delle variabili S3.
+Imposta `STORAGE_TYPE=S_3` e configura le variabili `STORAGE_S3_*` tramite il pannello di amministrazione o `.env`. Consulta il [riferimento a config-variables.ts](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) per l'elenco completo delle variabili S3.
 
 Quando si usa S3 con funzionalità che dipendono da CORS (ad esempio i download di file nel browser), assicurati che il tuo bucket consenta l'origine del tuo frontend di Twenty nella sua configurazione CORS.
 

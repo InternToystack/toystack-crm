@@ -44960,9 +44960,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-phone-number-input@patch:react-phone-number-input@npm%3A3.4.5#../../.yarn/patches/react-phone-number-input-npm-3.4.5-dc2895c306.patch::locator=twenty-front%40workspace%3Apackages%2Ftwenty-front":
+"react-phone-number-input@patch:react-phone-number-input@npm%3A3.4.5#../.yarn/patches/react-phone-number-input-npm-3.4.5-dc2895c306.patch::locator=twenty-front%40workspace%3Afrontend":
   version: 3.4.5
-  resolution: "react-phone-number-input@patch:react-phone-number-input@npm%3A3.4.5#../../.yarn/patches/react-phone-number-input-npm-3.4.5-dc2895c306.patch::version=3.4.5&hash=4d6a74&locator=twenty-front%40workspace%3Apackages%2Ftwenty-front"
+  resolution: "react-phone-number-input@patch:react-phone-number-input@npm%3A3.4.5#../.yarn/patches/react-phone-number-input-npm-3.4.5-dc2895c306.patch::version=3.4.5&hash=4d6a74&locator=twenty-front%40workspace%3Afrontend"
   dependencies:
     classnames: "npm:^2.5.1"
     country-flag-icons: "npm:^1.5.11"
@@ -50409,9 +50409,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"twenty-front@workspace:packages/twenty-front":
+"twenty-front@workspace:frontend":
   version: 0.0.0-use.local
-  resolution: "twenty-front@workspace:packages/twenty-front"
+  resolution: "twenty-front@workspace:frontend"
   dependencies:
     "@apollo/client": "npm:^4.0.0"
     "@argos-ci/storybook": "npm:6.2.3"
@@ -50562,7 +50562,7 @@ __metadata:
     react-intersection-observer: "npm:^9.15.1"
     react-loading-skeleton: "npm:^3.3.1"
     react-markdown: "npm:^10.1.0"
-    react-phone-number-input: "patch:react-phone-number-input@npm%3A3.4.5#../../.yarn/patches/react-phone-number-input-npm-3.4.5-dc2895c306.patch"
+    react-phone-number-input: "patch:react-phone-number-input@npm%3A3.4.5#../.yarn/patches/react-phone-number-input-npm-3.4.5-dc2895c306.patch"
     react-qr-code: "npm:^2.0.18"
     react-router-dom: "npm:^7.18.4"
     react-textarea-autosize: "npm:^8.4.1"
@@ -50666,9 +50666,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"twenty-server@workspace:packages/twenty-server":
+"twenty-server@workspace:backend":
   version: 0.0.0-use.local
-  resolution: "twenty-server@workspace:packages/twenty-server"
+  resolution: "twenty-server@workspace:backend"
   dependencies:
     "@ai-sdk/amazon-bedrock": "npm:^5.0.76"
     "@ai-sdk/anthropic": "npm:^4.0.49"
@@ -51375,9 +51375,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typeorm@patch:typeorm@0.3.31#./patches/typeorm+0.3.31.patch::locator=twenty-server%40workspace%3Apackages%2Ftwenty-server":
+"typeorm@patch:typeorm@0.3.31#./patches/typeorm+0.3.31.patch::locator=twenty-server%40workspace%3Abackend":
   version: 0.3.31
-  resolution: "typeorm@patch:typeorm@npm%3A0.3.31#./patches/typeorm+0.3.31.patch::version=0.3.31&hash=e61204&locator=twenty-server%40workspace%3Apackages%2Ftwenty-server"
+  resolution: "typeorm@patch:typeorm@npm%3A0.3.31#./patches/typeorm+0.3.31.patch::version=0.3.31&hash=e61204&locator=twenty-server%40workspace%3Abackend"
   dependencies:
     "@sqltools/formatter": "npm:^1.2.5"
     ansis: "npm:^4.3.1"

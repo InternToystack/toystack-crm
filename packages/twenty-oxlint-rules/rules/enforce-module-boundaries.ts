@@ -24,6 +24,12 @@ type DepConstraint = {
 };
 
 const extractPackageFromPath = (filePath: string): string | null => {
+  const application = filePath.match(/(?:^|\/)(frontend|backend)\//)?.[1];
+
+  if (application) {
+    return application === 'frontend' ? 'twenty-front' : 'twenty-server';
+  }
+
   const match = filePath.match(/packages\/([^/]+)\//);
 
   return match ? match[1] : null;

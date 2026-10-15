@@ -104,7 +104,7 @@ jobs:
 
       - name: Setup environment files
         run: |
-          cp packages/twenty-front/.env.example packages/twenty-front/.env
+          cp frontend/.env.example frontend/.env
           npx nx reset:env:e2e-testing-server twenty-server
 
       - name: Build frontend
@@ -132,7 +132,7 @@ jobs:
       # Cookie sessions are credentialed, so the front only authenticates from
       # the API's own origin, workspace subdomains included.
       - name: Serve the frontend from the server
-        run: cp -r packages/twenty-front/build packages/twenty-server/dist/front
+        run: cp -r frontend/build backend/dist/front
 
       # Logs are teed to files so the QA Scout can diff its own log window; the
       # console output is unchanged.

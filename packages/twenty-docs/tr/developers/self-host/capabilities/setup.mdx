@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 Her bir değişken, yönetici panelinizde **Ayarlar → Yönetici Paneli → Konfigürasyon Değişkenleri** altında açıklamalarla belgelenir.
 Veritabanı bağlantıları (`PG_DATABASE_URL`), sunucu URL'leri (`SERVER_URL`) ve gizli anahtarlar (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`) gibi bazı altyapı ayarları yalnızca `.env` dosyası aracılığıyla yapılandırılabilir.
 
-[Tam teknik referans →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[Tam teknik referans →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## Şifreleme anahtarları
@@ -169,7 +169,7 @@ Etkinleştirildiğinde, yalnızca `canAccessFullAdminPanel` yetkisine sahip kull
 </Warning>
 
 **Gerekli kapsamlar** (otomatik yapılandırılmış):
-[İlgili kaynak kodunu görün](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[İlgili kaynak kodunu görün](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ Projenize aşağıdaki yönlendirme URI'lerini eklemeniz gerekir:
 
 ### Kapsamları yapılandır
 
-[İlgili kaynak kodunu görün](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[İlgili kaynak kodunu görün](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'e-posta'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 Varsayılan olarak, Twenty yüklenen dosyaları yerel dosya sisteminde depolar. Üretim dağıtımları için S3 veya S3 uyumlu bir hizmet (MinIO, DigitalOcean Spaces vb.) kullanın. dosyaların kapsayıcı yeniden başlatmaları arasında kalıcı olmasını ve birden çok sunucu örneği arasında ölçeklenmesini sağlamak için.
 </Warning>
 
-`STORAGE_TYPE=S_3` değerini ayarlayın ve `STORAGE_S3_*` değişkenlerini yönetici paneli veya `.env` üzerinden yapılandırın. S3 değişkenlerinin tam listesi için [config-variables.ts referansına](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) bakın.
+`STORAGE_TYPE=S_3` değerini ayarlayın ve `STORAGE_S3_*` değişkenlerini yönetici paneli veya `.env` üzerinden yapılandırın. S3 değişkenlerinin tam listesi için [config-variables.ts referansına](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) bakın.
 
 S3'ü CORS'a bağlı özelliklerle kullanırken (örn. tarayıcı içi dosya indirmeleri), bucket'ınızın CORS yapılandırmasında Twenty frontend origin'inize izin verdiğinden emin olun.
 

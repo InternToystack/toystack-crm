@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 Cada variável é documentada com descrições no seu painel de administração em **Configurações → Painel de Administração → Variáveis de Configuração**.
 Algumas configurações de infraestrutura como conexões de banco de dados (`PG_DATABASE_URL`), URLs de servidor (`SERVER_URL`) e segredos (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`) só podem ser configuradas via arquivo `.env`.
 
-[Referência técnica completa →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[Referência técnica completa →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## Chaves de criptografia
@@ -169,7 +169,7 @@ Quando ativado, apenas usuários com `canAccessFullAdminPanel` podem criar espa�
 </Warning>
 
 **Escopos necessários** (configurados automaticamente):
-[Veja o código relevante](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[Veja o código relevante](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ Você precisa adicionar os seguintes URIs de redirecionamento ao seu projeto:
 
 ### Configurar escopos
 
-[Veja o código relevante](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[Veja o código relevante](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'email'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 Por padrão, o Twenty armazena os arquivos enviados no sistema de arquivos local. Para implantações em produção, use o S3 ou um serviço compatível com S3 (MinIO, DigitalOcean Spaces, etc.) para garantir que os arquivos persistam entre reinicializações do contêiner e possam escalar em várias instâncias de servidor.
 </Warning>
 
-Defina `STORAGE_TYPE=S_3` e configure as variáveis `STORAGE_S3_*` pelo painel de administração ou `.env`. Veja a [referência de config-variables.ts](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) para a lista completa de variáveis do S3.
+Defina `STORAGE_TYPE=S_3` e configure as variáveis `STORAGE_S3_*` pelo painel de administração ou `.env`. Veja a [referência de config-variables.ts](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) para a lista completa de variáveis do S3.
 
 Ao usar o S3 com recursos dependentes de CORS (por exemplo, downloads de arquivos no navegador), verifique se o seu bucket permite a origem do seu frontend do Twenty na sua configuração de CORS.
 

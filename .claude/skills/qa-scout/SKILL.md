@@ -108,7 +108,7 @@ unfinished file, because a checkpoint no scenario has failed in is silence.
   "headline": "one sentence, user language",
   "prNumber": 12345,
   "scenarios": [{ "name": "...", "result": "pass | fail", "notes": "..." }],
-  "suspects": ["packages/twenty-server/src/..."],
+  "suspects": ["backend/src/..."],
   "newLogErrors": 0
 }
 ```

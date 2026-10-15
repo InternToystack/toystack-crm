@@ -6,7 +6,7 @@
 			"type": "shell",
 			"command": "npx nx run twenty-server:jest -- --config ./jest-integration.config.ts ${relativeFile} --silent=false ${input:watchMode} ${input:updateSnapshot}",
 			"options": {
-				"cwd": "${workspaceFolder}/packages/twenty-server",
+				"cwd": "${workspaceFolder}/backend",
 				"env": {
 					"NODE_ENV": "test",
 					"NODE_OPTIONS": "--max-old-space-size=12288 --import tsx/esm"
@@ -28,7 +28,7 @@
 			"type": "shell",
 			"command": "npx nx run twenty-server:jest -- --config ./jest.config.mjs ${relativeFile} --silent=false ${input:watchMode} ${input:updateSnapshot}",
 			"options": {
-				"cwd": "${workspaceFolder}/packages/twenty-server",
+				"cwd": "${workspaceFolder}/backend",
 				"env": {
 					"NODE_ENV": "test",
 					"NODE_OPTIONS": "--max-old-space-size=12288 --import tsx/esm"

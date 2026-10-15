@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 Každá proměnná je dokumentována s popisy ve vašem administračním panelu v sekci **Nastavení → Admin panel → Konfigurační proměnné**.
 Některá nastavení infrastruktury, jako připojení k databázi (`PG_DATABASE_URL`), URL serveru (`SERVER_URL`) a tajné klíče (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`), lze konfigurovat pouze prostřednictvím souboru `.env`.
 
-[Kompletní technická referenční příručka →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[Kompletní technická referenční příručka →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## Šifrovací klíče
@@ -169,7 +169,7 @@ Pokud je povoleno, pouze uživatelé s `canAccessFullAdminPanel` mohou vytváře
 </Warning>
 
 **Požadované rozsahy** (automaticky konfigurované):
-[Zobrazit relevantní zdrojový kód](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[Zobrazit relevantní zdrojový kód](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ Musíte přidat následující URI přesměrování do vašeho projektu:
 
 ### Konfigurace rozsahů
 
-[Zobrazit relevantní zdrojový kód](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[Zobrazit relevantní zdrojový kód](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'email'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 Ve výchozím nastavení Twenty ukládá nahrané soubory do místního souborového systému. Pro produkční nasazení použijte S3 nebo službu kompatibilní se S3 (MinIO, DigitalOcean Spaces atd.). aby byly soubory zachovány při restartech kontejnerů a bylo možné škálovat napříč více instancemi serveru.
 </Warning>
 
-Nastavte `STORAGE_TYPE=S_3` a nakonfigurujte proměnné `STORAGE_S3_*` prostřednictvím administračního panelu nebo `.env`. Viz [referenci config-variables.ts](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) pro úplný seznam proměnných S3.
+Nastavte `STORAGE_TYPE=S_3` a nakonfigurujte proměnné `STORAGE_S3_*` prostřednictvím administračního panelu nebo `.env`. Viz [referenci config-variables.ts](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) pro úplný seznam proměnných S3.
 
 Při používání S3 s funkcemi závislými na CORS (např. stahování souborů v prohlížeči) se ujistěte, že váš bucket povoluje origin vašeho frontendu Twenty ve své konfiguraci CORS.
 

@@ -211,7 +211,7 @@ jobs:
 
       - name: Server / Align .env with seeded database
         run: |
-          ENV_FILE="packages/twenty-server/.env"
+          ENV_FILE="backend/.env"
           # Must match the old container's APP_SECRET (same DB, same run-generated secret).
           sed -i "s|^APP_SECRET=.*|APP_SECRET=${APP_SECRET}|" "$ENV_FILE"
           # PG_DATABASE_URL / REDIS_URL come from .env.example (postgres@localhost:5432/default,

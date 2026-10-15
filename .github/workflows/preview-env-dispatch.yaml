@@ -7,8 +7,8 @@ on:
     types: [opened, synchronize, reopened, labeled]
     paths:
       - packages/twenty-docker/**
-      - packages/twenty-server/**
-      - packages/twenty-front/**
+      - backend/**
+      - frontend/**
       - packages/twenty-apps/examples/**
       - packages/twenty-apps/internal/**
       - packages/twenty-apps/public/**

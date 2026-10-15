@@ -15,7 +15,7 @@
     "unresolved": "warn"
   },
   "workspaces": {
-    "packages/twenty-server": {
+    "backend": {
       "entry": [
         "src/main.ts",
         "src/command/command.ts",
@@ -50,7 +50,7 @@
       ],
       "ignoreDependencies": ["@types/psl"]
     },
-    "packages/twenty-front": {
+    "frontend": {
       "entry": [
         "src/index.tsx",
         "src/**/graphql/**/*.{ts,tsx}",

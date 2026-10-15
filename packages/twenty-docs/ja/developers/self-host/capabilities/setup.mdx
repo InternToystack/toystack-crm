@@ -46,7 +46,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 各変数は、**設定 → 管理パネル → 構成変数** で説明付きでドキュメント化されています。
 データベース接続 (`PG_DATABASE_URL`)、サーバーURL (`SERVER_URL`)、秘密情報 (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`) など、一部のインフラ設定は `.env` ファイルを介してのみ構成できます。
 
-[ 完全な技術リファレンス →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[ 完全な技術リファレンス →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## 暗号鍵
@@ -170,7 +170,7 @@ IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS=true
 </Warning>
 
 **必要なスコープ** (自動的に構成される):
-[関連ソースコードを見る](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[関連ソースコードを見る](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -239,7 +239,7 @@ Microsoft Azureコンソールで"権限"の欄で以下のAPIを有効にしま
 
 ### スコープを構成
 
-[関連ソースコードを見る](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[関連ソースコードを見る](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'メール'
@@ -326,7 +326,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 デフォルトでは、Twenty はアップロードされたファイルをローカルのファイルシステムに保存します。 本番環境へのデプロイでは、S3 または S3 互換のサービス（MinIO、DigitalOcean Spaces など）を使用してください。 コンテナの再起動をまたいでファイルを永続化し、複数のサーバーインスタンスにまたがってスケールできるようにするため。
 </Warning>
 
-`STORAGE_TYPE=S_3` を設定し、管理パネルまたは `.env` から `STORAGE_S3_*` 変数を設定してください。 S3 変数の全一覧については、[config-variables.ts リファレンス](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) を参照してください。
+`STORAGE_TYPE=S_3` を設定し、管理パネルまたは `.env` から `STORAGE_S3_*` 変数を設定してください。 S3 変数の全一覧については、[config-variables.ts リファレンス](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) を参照してください。
 
 CORS に依存する機能（例: ブラウザ内でのファイルダウンロード）で S3 を使用する場合は、バケットの CORS 設定で Twenty フロントエンドのオリジンが許可されていることを確認してください。
 

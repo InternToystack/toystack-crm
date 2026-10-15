@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 Каждая переменная документирована с описаниями в вашей панели администратора в **Настройки → Панель администратора → Переменные конфигурации**.
 Некоторые инфраструктурные настройки, такие как соединения с базой данных (`PG_DATABASE_URL`), URL сервера (`SERVER_URL`) и секреты (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`), могут быть настроены только через файл `.env`.
 
-[Полная техническая ссылка →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[Полная техническая ссылка →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## Ключи шифрования
@@ -169,7 +169,7 @@ IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS=true
 </Warning>
 
 **Необходимые границы** (автоматически настроены):
-[Посмотреть соответствующий исходный код](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[Посмотреть соответствующий исходный код](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS=true
 
 ### Настройка областей доступа
 
-[См. соответствующий исходный код](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[См. соответствующий исходный код](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'электронная почта'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 По умолчанию Twenty магазинов загрузили файлы в локальной файловой системе. Для продакшн-развертываний используйте S3 или совместимый с S3 сервис (MinIO, DigitalOcean Spaces и т. д.). чтобы файлы сохранялись при перезапусках контейнеров и были доступны на нескольких экземплярах сервера при масштабировании.
 </Warning>
 
-Установите `STORAGE_TYPE=S_3` и настройте переменные `STORAGE_S3_*` через админ-панель или `.env`. См. [справочник config-variables.ts](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) для полного списка переменных S3.
+Установите `STORAGE_TYPE=S_3` и настройте переменные `STORAGE_S3_*` через админ-панель или `.env`. См. [справочник config-variables.ts](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) для полного списка переменных S3.
 
 При использовании S3 с функциями, зависящими от CORS (например, загрузки файлов в браузере), убедитесь, что в конфигурации CORS вашего бакета разрешен origin фронтенда Twenty.
 

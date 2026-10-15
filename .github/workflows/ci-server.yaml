@@ -22,10 +22,10 @@ jobs:
       files: |
         package.json
         yarn.lock
-        packages/twenty-server/**
-        packages/twenty-front/src/generated/**
-        packages/twenty-front/src/generated-metadata/**
-        packages/twenty-front/src/generated-admin/**
+        backend/**
+        frontend/src/generated/**
+        frontend/src/generated-metadata/**
+        frontend/src/generated-admin/**
         packages/twenty-client-sdk/**
         packages/twenty-emails/**
         packages/twenty-shared/**
@@ -35,8 +35,8 @@ jobs:
     uses: ./.github/workflows/changed-files.yaml
     with:
       files: |
-        packages/twenty-server/src/database/commands/upgrade-version-command/**
-        packages/twenty-server/src/engine/core-modules/upgrade/**
+        backend/src/database/commands/upgrade-version-command/**
+        backend/src/engine/core-modules/upgrade/**
 
   server-build:
     needs: changed-files-check
@@ -210,12 +210,12 @@ jobs:
           npx nx run twenty-front:graphql:generate --configuration=metadata
           npx nx run twenty-front:graphql:generate --configuration=admin
 
-          if ! git diff --quiet -- packages/twenty-front/src/generated packages/twenty-front/src/generated-metadata packages/twenty-front/src/generated-admin; then
+          if ! git diff --quiet -- frontend/src/generated frontend/src/generated-metadata frontend/src/generated-admin; then
             echo "::error::GraphQL schema changes detected. Please run the three graphql:generate configurations ('data', 'metadata', 'admin') and commit the changes."
             echo ""
             echo "The following GraphQL schema changes were detected:"
             echo "==================================================="
-            git diff -- packages/twenty-front/src/generated packages/twenty-front/src/generated-metadata packages/twenty-front/src/generated-admin
+            git diff -- frontend/src/generated frontend/src/generated-metadata frontend/src/generated-admin
             echo "==================================================="
             echo ""
             HAS_ERRORS=true

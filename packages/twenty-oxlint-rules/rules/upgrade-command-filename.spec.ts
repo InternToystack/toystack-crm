@@ -6,7 +6,7 @@ const ruleTester = new RuleTester();
 
 const DUMMY_CODE = 'const x = 1;';
 const BASE =
-  '/project/packages/twenty-server/src/database/commands/upgrade-version-command';
+  '/project/backend/src/database/commands/upgrade-version-command';
 
 const filename = (path: string) => `${BASE}/${path}`;
 
@@ -54,7 +54,7 @@ ruleTester.run(RULE_NAME, rule, {
     },
     {
       code: DUMMY_CODE,
-      filename: '/project/packages/twenty-front/src/components/Button.tsx',
+      filename: '/project/frontend/src/components/Button.tsx',
     },
     {
       code: DUMMY_CODE,

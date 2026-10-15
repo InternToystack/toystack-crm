@@ -24,45 +24,45 @@ ruleTester.run(RULE_NAME, rule, {
     {
       code: "import { isDefined } from 'twenty-shared';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-front/src/utils.ts',
+      filename: '/project/frontend/src/utils.ts',
     },
     {
       code: "import { Button } from 'twenty-ui';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-front/src/components.tsx',
+      filename: '/project/frontend/src/components.tsx',
     },
     {
       code: "import { isDefined } from 'twenty-shared';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-server/src/utils.ts',
+      filename: '/project/backend/src/utils.ts',
     },
     {
       code: "import { helper } from './local';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-front/src/utils.ts',
+      filename: '/project/frontend/src/utils.ts',
     },
     {
       code: "import lodash from 'lodash';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-front/src/utils.ts',
+      filename: '/project/frontend/src/utils.ts',
     },
     {
       code: "import { isDefined } from 'twenty-shared';",
       options: [{ depConstraints: [] }],
-      filename: '/project/packages/twenty-front/src/utils.ts',
+      filename: '/project/frontend/src/utils.ts',
     },
   ],
   invalid: [
     {
       code: "import { ServerService } from 'twenty-server';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-front/src/bad-import.ts',
+      filename: '/project/frontend/src/bad-import.ts',
       errors: [{ messageId: 'moduleBoundaryViolation' }],
     },
     {
       code: "import { Component } from 'twenty-front';",
       options: [{ depConstraints }],
-      filename: '/project/packages/twenty-server/src/bad-import.ts',
+      filename: '/project/backend/src/bad-import.ts',
       errors: [{ messageId: 'moduleBoundaryViolation' }],
     },
     {

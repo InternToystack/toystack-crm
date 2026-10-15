@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 각 변수는 **설정 → 관리자 패널 → 구성 변수**의 관리자 패널에 설명과 함께 문서화되어 있습니다.
 데이터베이스 연결(`PG_DATABASE_URL`), 서버 URL(`SERVER_URL`), 비밀 값(`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`)과 같은 일부 인프라 설정은 `.env` 파일을 통해서만 구성할 수 있습니다.
 
-[완전한 기술적 참조 →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[완전한 기술적 참조 →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## 암호화 키
@@ -169,7 +169,7 @@ IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS=true
 </Warning>
 
 **필요한 범위** (자동 구성됨):
-[관련 소스 코드 보기](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[관련 소스 코드 보기](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ Microsoft Azure 콘솔에서 "권한"에서 다음 API를 활성화하세요:
 
 ### 범위 구성
 
-[관련 소스 코드 보기](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[관련 소스 코드 보기](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * '이메일'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 기본적으로 Twenty는 업로드된 파일을 로컬 파일 시스템에 저장합니다. 프로덕션 배포에서는 S3 또는 S3 호환 서비스(MinIO, DigitalOcean Spaces 등)를 사용하세요. 컨테이너 재시작 시에도 파일이 유지되고, 여러 서버 인스턴스에 걸쳐 확장될 수 있도록 하기 위함입니다.
 </Warning>
 
-`STORAGE_TYPE=S_3`를 설정하고 관리자 패널 또는 `.env`를 통해 `STORAGE_S3_*` 변수를 구성하세요. 전체 S3 변수 목록은 [config-variables.ts 참조](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)를 확인하세요.
+`STORAGE_TYPE=S_3`를 설정하고 관리자 패널 또는 `.env`를 통해 `STORAGE_S3_*` 변수를 구성하세요. 전체 S3 변수 목록은 [config-variables.ts 참조](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)를 확인하세요.
 
 CORS에 의존하는 기능(예: 브라우저 내 파일 다운로드)과 함께 S3를 사용할 때에는, 버킷의 CORS 구성에서 Twenty 프런트엔드 오리진을 허용하도록 하세요.
 

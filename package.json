@@ -68,12 +68,19 @@
     "docs:generate-paths": "tsx packages/twenty-docs/scripts/generate-documentation-paths.ts",
     "docs:prune-orphans": "tsx packages/twenty-docs/scripts/prune-orphan-translations.ts",
     "docs:fix-links": "tsx packages/twenty-docs/scripts/fix-translated-links.ts",
-    "start": "npx concurrently --kill-others 'npx nx run-many -t start -p twenty-server twenty-front' 'npx wait-on tcp:3000 && npx nx run twenty-server:worker'"
+    "start": "npx concurrently --kill-others 'npx nx run-many -t start -p twenty-server twenty-front' 'npx wait-on tcp:3000 && npx nx run twenty-server:worker'",
+    "dev:frontend": "nx start twenty-front",
+    "dev:backend": "nx start twenty-server",
+    "dev:worker": "nx run twenty-server:worker",
+    "build:frontend": "nx build twenty-front",
+    "build:backend": "nx build twenty-server",
+    "check:frontend": "nx typecheck twenty-front",
+    "check:backend": "nx typecheck twenty-server"
   },
   "workspaces": {
     "packages": [
-      "packages/twenty-front",
-      "packages/twenty-server",
+      "frontend",
+      "backend",
       "packages/twenty-emails",
       "packages/twenty-ui",
       "packages/twenty-utils",

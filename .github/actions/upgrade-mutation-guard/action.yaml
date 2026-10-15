@@ -35,10 +35,10 @@ runs:
       shell: bash
       env:
         BASE_SHA: ${{ inputs.base_sha }}
-        COMMANDS_ROOT: packages/twenty-server/src/database/commands/upgrade-version-command
+        COMMANDS_ROOT: backend/src/database/commands/upgrade-version-command
       run: |
         set -euo pipefail
-        VERSION_CONSTANT_FILE="packages/twenty-server/src/engine/core-modules/upgrade/constants/twenty-current-version.constant.ts"
+        VERSION_CONSTANT_FILE="backend/src/engine/core-modules/upgrade/constants/twenty-current-version.constant.ts"
 
         CURRENT_VERSION=$(sed -n "s/.*TWENTY_CURRENT_VERSION = '\([0-9.]*\)'.*/\1/p" "$VERSION_CONSTANT_FILE")
 
@@ -139,7 +139,7 @@ runs:
       shell: bash
       env:
         BASE_SHA: ${{ inputs.base_sha }}
-        COMMANDS_ROOT: packages/twenty-server/src/database/commands/upgrade-version-command
+        COMMANDS_ROOT: backend/src/database/commands/upgrade-version-command
       run: |
         set -euo pipefail
         extract_ts() {

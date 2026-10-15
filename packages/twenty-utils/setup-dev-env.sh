@@ -242,9 +242,9 @@ if command -v npx &>/dev/null && [ -d node_modules ]; then
   npx nx reset:env twenty-front
   npx nx reset:env twenty-server
 else
-  for pkg in twenty-front twenty-server; do
-    src="packages/$pkg/.env.example"
-    dst="packages/$pkg/.env"
+  for pkg in frontend backend; do
+    src="$pkg/.env.example"
+    dst="$pkg/.env"
     if [ -f "$src" ] && [ ! -f "$dst" ]; then
       cp "$src" "$dst"
       ok "$pkg/.env created"

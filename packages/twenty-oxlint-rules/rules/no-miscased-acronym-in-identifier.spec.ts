@@ -42,7 +42,7 @@ ruleTester.run(RULE_NAME, rule, {
     {
       code: 'export const GET_AUTHORIZATION_URL_FOR_SSO = gql``;',
       filename:
-        'packages/twenty-front/src/modules/auth/graphql/mutations/getAuthorizationUrlForSSO.ts',
+        'frontend/src/modules/auth/graphql/mutations/getAuthorizationUrlForSSO.ts',
     },
     {
       code: 'class SsoResolver { @Mutation(() => SetupSsoDTO) async createOIDCIdentityProvider() {} }',
@@ -95,13 +95,13 @@ ruleTester.run(RULE_NAME, rule, {
     {
       code: 'export const openApiReference = {};',
       errors: [{ messageId: 'miscasedAcronymInFilename' }],
-      filename: 'packages/twenty-server/src/engine/core-modules/open-api/openAPIReference.ts',
+      filename: 'backend/src/engine/core-modules/open-api/openAPIReference.ts',
     },
     {
       code: 'export const SettingsSsoForm = () => null;',
       errors: [{ messageId: 'miscasedAcronymInFilename' }],
       filename:
-        'packages/twenty-front/src/modules/settings/security/components/SettingsSSOForm.tsx',
+        'frontend/src/modules/settings/security/components/SettingsSSOForm.tsx',
     },
     {
       code: 'export type SAMLSSOInput = { issuer: string };',

@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 每个变量都在您的管理面板的**设置 → 管理员面板 → 配置变量**中记录了说明。
 某些基础设施设置如数据库连接 (`PG_DATABASE_URL`)、服务器 URL (`SERVER_URL`) 和密钥（`ENCRYPTION_KEY`、`FALLBACK_ENCRYPTION_KEY`）只能通过 `.env` 文件配置。
 
-[完整技术参考→](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[完整技术参考→](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## 加密密钥
@@ -169,7 +169,7 @@ IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS=true
 </Warning>
 
 **所需范围**（自动配置）：
-[查看相关源码](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[查看相关源码](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ IS_WORKSPACE_CREATION_LIMITED_TO_SERVER_ADMINS=true
 
 ### 配置范围
 
-[查看相关源码](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[查看相关源码](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * '电子邮件'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 默认情况下，Twenty 将上传的文件存储在本地文件系统上。 对于生产环境部署，请使用 S3 或兼容 S3 的服务（MinIO、DigitalOcean Spaces 等）。 以确保文件在容器重启后仍然存在，并可在多个服务器实例间扩展。
 </Warning>
 
-设置 `STORAGE_TYPE=S_3`，并通过管理面板或 `.env` 配置 `STORAGE_S3_*` 变量。 有关 S3 变量的完整列表，请参见[config-variables.ts 参考](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)。
+设置 `STORAGE_TYPE=S_3`，并通过管理面板或 `.env` 配置 `STORAGE_S3_*` 变量。 有关 S3 变量的完整列表，请参见[config-variables.ts 参考](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)。
 
 在将 S3 与依赖 CORS 的功能（例如浏览器内文件下载）一起使用时，请确保你的存储桶在其 CORS 配置中允许你的 Twenty 前端来源。
 

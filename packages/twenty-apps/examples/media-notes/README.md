@@ -26,7 +26,7 @@ on. Serve the front build from the server rather than on its own port:
 npx nx build twenty-sdk
 NODE_ENV=production npx nx build twenty-front
 npx nx build twenty-server
-cp -r packages/twenty-front/build packages/twenty-server/dist/front
+cp -r frontend/build backend/dist/front
 
 # start:ci, not start: the watch target would rimraf dist and delete the front
 npx nx start:ci twenty-server &

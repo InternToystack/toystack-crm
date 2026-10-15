@@ -45,7 +45,7 @@ IS_CONFIG_VARIABLES_IN_DB_ENABLED=true  # default
 Fiecare variabilă este documentată cu descrieri în panoul dvs. de administrare la **Setări → Panou Admin → Variabile de Configurare**.
 Unele setări de infrastructură, cum ar fi conexiunile la baze de date (`PG_DATABASE_URL`), URL-urile serverului (`SERVER_URL`) și secretele (`ENCRYPTION_KEY`, `FALLBACK_ENCRYPTION_KEY`) pot fi configurate doar prin fișierul `.env`.
 
-[Referință tehnică completă →](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts)
+[Referință tehnică completă →](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts)
 </Warning>
 
 ## Chei de criptare
@@ -169,7 +169,7 @@ Când este activată, doar utilizatorii cu `canAccessFullAdminPanel` pot crea sp
 </Warning>
 
 **Domenii necesare** (configurate automat):
-[Consultați codul sursă relevant](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
+[Consultați codul sursă relevant](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-google-apis-oauth-scopes.ts#L4-L10)
 
 * `https://www.googleapis.com/auth/calendar.events`
 * `https://www.googleapis.com/auth/gmail.readonly`
@@ -238,7 +238,7 @@ Trebuie să adăugați următoarele URI-uri de redirecționare în proiectul dvs
 
 ### Configurați scopurile
 
-[Consultați codul sursă relevant](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
+[Consultați codul sursă relevant](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/auth/utils/get-microsoft-apis-oauth-scopes.ts#L2-L9)
 
 * 'openid'
 * 'email'
@@ -325,7 +325,7 @@ yarn command:prod cron:workflow:automated-cron-trigger
 În mod implicit, Twenty stochează fișierele încărcate în sistemul de fișiere local. Pentru implementări în producție, utilizați S3 sau un serviciu compatibil cu S3 (MinIO, DigitalOcean Spaces etc.). pentru a vă asigura că fișierele persistă între repornirile containerelor și se scalează pe mai multe instanțe de server.
 </Warning>
 
-Setați `STORAGE_TYPE=S_3` și configurați variabilele `STORAGE_S3_*` prin panoul de administrare sau `.env`. Consultați [referința config-variables.ts](https://github.com/twentyhq/twenty/blob/main/packages/twenty-server/src/engine/core-modules/twenty-config/config-variables.ts) pentru lista completă a variabilelor S3.
+Setați `STORAGE_TYPE=S_3` și configurați variabilele `STORAGE_S3_*` prin panoul de administrare sau `.env`. Consultați [referința config-variables.ts](https://github.com/twentyhq/twenty/blob/main/backend/src/engine/core-modules/twenty-config/config-variables.ts) pentru lista completă a variabilelor S3.
 
 Când utilizați S3 cu funcționalități dependente de CORS (de ex., descărcări de fișiere în browser), asigurați-vă că bucketul permite originea frontend-ului Twenty în configurația sa CORS.
 
