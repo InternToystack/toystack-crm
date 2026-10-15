@@ -1,0 +1,118 @@
+import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
+import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
+import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
+import {
+  FieldContext,
+  type RecordUpdateHook,
+} from '@/object-record/record-field/ui/contexts/FieldContext';
+import { RecordFieldComponentInstanceContext } from '@/object-record/record-field/ui/states/contexts/RecordFieldComponentInstanceContext';
+import { isJunctionRelationForbidden } from '@/object-record/record-field/ui/utils/junction/isJunctionRelationForbidden';
+import { RecordInlineCell } from '@/object-record/record-inline-cell/components/RecordInlineCell';
+import { getRecordFieldInputInstanceId } from '@/object-record/utils/getRecordFieldInputId';
+import { getObjectPermissionsForObject } from '@/object-metadata/utils/getObjectPermissionsForObject';
+import { type ObjectPermissions } from 'twenty-shared/types';
+import { styled } from '@linaria/react';
+import { themeCssVariables } from 'twenty-ui/theme';
+
+const StyledFieldItem = styled.div`
+  --record-field-label-size: 12px;
+  border-radius: 6px;
+  padding: 2px 6px;
+  min-width: 0;
+  &:hover {
+    background: ${themeCssVariables.background.secondary};
+  }
+  &:focus-within {
+    background: ${themeCssVariables.background.transparent.blue};
+  }
+`;
+
+type FieldsWidgetFieldItemProps = {
+  fieldMetadataItem: FieldMetadataItem;
+  globalIndex: number;
+  recordId: string;
+  objectMetadataItem: EnrichedObjectMetadataItem;
+  objectMetadataItems: EnrichedObjectMetadataItem[];
+  objectPermissionsByObjectMetadataId: Record<
+    string,
+    ObjectPermissions & { objectMetadataId: string }
+  >;
+  isRecordReadOnly: boolean;
+  useUpdateRecord: RecordUpdateHook;
+  recordLoading: boolean;
+  instanceId: string;
+  onMouseEnter: () => void;
+};
+
+export const FieldsWidgetFieldItem = ({
+  fieldMetadataItem,
+  globalIndex,
+  recordId,
+  objectMetadataItem,
+  objectMetadataItems,
+  objectPermissionsByObjectMetadataId,
+  isRecordReadOnly,
+  useUpdateRecord,
+  recordLoading,
+  instanceId,
+  onMouseEnter,
+}: FieldsWidgetFieldItemProps) => {
+  const fieldDefinition = formatFieldMetadataItemAsColumnDefinition({
+    field: fieldMetadataItem,
+    position: globalIndex,
+    objectMetadataItem,
+    showLabel: true,
+    labelWidth: 120,
+  });
+
+  return (
+    <FieldContext.Provider
+      key={recordId + fieldMetadataItem.id}
+      value={{
+        recordId,
+        maxWidth: 200,
+        isLabelIdentifier: false,
+        fieldDefinition,
+        useUpdateRecord,
+        isDisplayModeFixHeight: true,
+        isRecordFieldReadOnly: isRecordFieldReadOnly({
+          isRecordReadOnly,
+          objectPermissions: getObjectPermissionsForObject(
+            objectPermissionsByObjectMetadataId,
+            objectMetadataItem.id,
+          ),
+          fieldMetadataItem,
+          fieldDefinition,
+          objectPermissionsByObjectMetadataId,
+        }),
+        onMouseEnter,
+        anchorId: `${getRecordFieldInputInstanceId({
+          recordId,
+          fieldName: fieldMetadataItem.name,
+          prefix: instanceId,
+        })}`,
+        isForbidden: isJunctionRelationForbidden({
+          fieldMetadataItem,
+          sourceObjectMetadataId: objectMetadataItem.id,
+          objectMetadataItems,
+          objectPermissionsByObjectMetadataId,
+        }),
+      }}
+    >
+      <RecordFieldComponentInstanceContext.Provider
+        value={{
+          instanceId: getRecordFieldInputInstanceId({
+            recordId,
+            fieldName: fieldMetadataItem.name,
+            prefix: instanceId,
+          }),
+        }}
+      >
+        <StyledFieldItem>
+          <RecordInlineCell loading={recordLoading} />
+        </StyledFieldItem>
+      </RecordFieldComponentInstanceContext.Provider>
+    </FieldContext.Provider>
+  );
+};

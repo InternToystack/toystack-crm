@@ -1,0 +1,83 @@
+/* Keep the Atlas palette scoped so native dark surfaces retain their contrast. */
+.light {
+  color-scheme: light;
+  --t-accent-accent1: #fbfcff !important;
+  --t-accent-accent10: #254fb5 !important;
+  --t-accent-accent11: #244da9 !important;
+  --t-accent-accent12: #15316f !important;
+  --t-accent-accent2: #f7f9ff !important;
+  --t-accent-accent3: #f0f4fd !important;
+  --t-accent-accent3570: #9bb5ee !important;
+  --t-accent-accent4: #e8eefc !important;
+  --t-accent-accent4060: #6f91e4 !important;
+  --t-accent-accent5: #dce6fc !important;
+  --t-accent-accent6: #c7d7f8 !important;
+  --t-accent-accent7: #afc5f3 !important;
+  --t-accent-accent8: #8aa8eb !important;
+  --t-accent-accent9: #2d5ed4 !important;
+  --t-accent-primary: #dce6fc !important;
+  --t-accent-quaternary: #f7f9ff !important;
+  --t-accent-secondary: #e8eefc !important;
+  --t-accent-tertiary: #f0f4fd !important;
+  --t-background-primary: #ffffff !important;
+  --t-background-quaternary: #ebebeb !important;
+  --t-background-secondary: #f7f7f7 !important;
+  --t-background-tertiary: #f2f2f2 !important;
+  --t-background-transparent-blue: rgba(45, 94, 212, 0.10) !important;
+  --t-border-color-blue: #2d5ed4 !important;
+  --t-border-color-light: #ededed !important;
+  --t-border-color-medium: #dedede !important;
+  --t-border-color-strong: #cccccc !important;
+  --t-border-radius-md: 6px !important;
+  --t-border-radius-md-round: 6px !important;
+  --t-box-shadow-sidebar: none !important;
+  --t-buttons-secondary-text-color: #2d5ed4 !important;
+  --t-color-blue: #2d5ed4 !important;
+  --t-color-blue1: #fbfcff !important;
+  --t-color-blue10: #254fb5 !important;
+  --t-color-blue11: #244da9 !important;
+  --t-color-blue12: #15316f !important;
+  --t-color-blue2: #f7f9ff !important;
+  --t-color-blue3: #f0f4fd !important;
+  --t-color-blue4: #e8eefc !important;
+  --t-color-blue5: #dce6fc !important;
+  --t-color-blue6: #c7d7f8 !important;
+  --t-color-blue7: #afc5f3 !important;
+  --t-color-blue8: #8aa8eb !important;
+  --t-color-blue9: #2d5ed4 !important;
+  --t-font-color-extra-light: #a3a3a3 !important;
+  --t-font-color-inverted: #ffffff !important;
+  --t-font-color-light: #767676 !important;
+  --t-font-color-primary: #0f0f0f !important;
+  --t-font-color-secondary: #4d4d4d !important;
+  --t-font-color-tertiary: #636363 !important;
+}
+
+.dark {
+  color-scheme: dark;
+  --t-accent-accent9: #2d5ed4 !important;
+  --t-border-radius-md: 6px !important;
+  --t-border-radius-md-round: 6px !important;
+  --t-box-shadow-sidebar: none !important;
+  --t-color-blue: #2d5ed4 !important;
+  --t-color-blue9: #2d5ed4 !important;
+}
+
+button[data-variant='solid'][data-color='neutral'] {
+  --tw-button-background: var(--t-color-blue);
+  --tw-button-border: var(--t-color-blue);
+  --tw-button-color: #ffffff;
+  --tw-button-hover: #254fb5;
+  --tw-button-active: #15316f;
+}
+
+html,
+body {
+  background: var(--t-background-secondary);
+  color: var(--t-font-color-primary);
+}
+
+.light ::selection {
+  background: #dce6fc;
+  color: #15316f;
+}
